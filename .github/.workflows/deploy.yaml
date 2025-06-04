@@ -1,0 +1,13 @@
+name: Hola mundo
+
+on: 
+  push: 
+    branches: [main]
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hola mundo desde GitHub Actions"
+      - run: echo "Este es un ejemplo de un workflow simple"
+      - run: echo "¡Listo para desplegar!"
