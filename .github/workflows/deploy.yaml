@@ -63,12 +63,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: sharing-between-jobs
     env:
-      BASE_JOB: ${{ needs.sharing-between-jobs.outputs }}
-      VARIABLE_1: $BASE_JOB.output-1
+      VARIABLE_1: ${{ needs.sharing-between-jobs.outputs.output-1 }}
       VARIABLE_2: ${{ needs.sharing-between-jobs.outputs.output-2 }}
     steps:
       - name: Read a variable from another job
         run: |
           echo "Variable del step 1: $VARIABLE_1"
           echo "Variable del step 2: $VARIABLE_2"
+          echo "Outputs: ${{ needs.sharing-between-jobs.outputs }}"
     
