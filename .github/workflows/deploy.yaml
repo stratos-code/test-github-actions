@@ -1,7 +1,7 @@
 name: Hola mundo
 
-on: 
-  push: 
+on:
+  push:
     branches: [main]
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
       - run: echo "Este es un ejemplo de un workflow simple"
       - run: echo "¡Listo para desplegar!"
       - run: echo "Variable de entorno $NAME"
-  
+
   second-job:
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release'}}
     runs-on: ubuntu-latest
@@ -29,9 +29,19 @@ jobs:
     steps:
       - name: Working Dir
         run: ls -la
-      
+
       - name: Action [Checkout]
         uses: actions/checkout@v4
 
       - name: Working Dir after checkout
         run: ls -la
+
+  sharing-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output a variable
+        id: step-1
+        run: echo "variable=Hola mundo" >> $GITHUB_OUTPUT
+      
+      - name: Read a variable
+        run: echo "Variable del step 1: ${{ steps.step-1.outputs.variable }}"
