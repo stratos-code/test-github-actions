@@ -36,7 +36,7 @@ jobs:
       - name: Working Dir after checkout
         run: ls -la
 
-  sharing-job:
+  sharing-between-steps:
     runs-on: ubuntu-latest
     steps:
       - name: Output a variable
@@ -45,3 +45,30 @@ jobs:
       
       - name: Read a variable
         run: 'echo "Variable del step 1: ${{ steps.step-1.outputs.variable }}"'
+
+  sharing-between-jobs:
+    runs-on: ubuntu-latest
+    outputs:
+      output-1: ${{ steps.step-1.outputs.variable }}
+      output-2: ${{ steps.step-2.outputs.variable }}
+    steps:
+      - name: Output a variable
+        id: step-1
+        run: echo "variable=Hola mundo" >> $GITHUB_OUTPUT
+      - name: Output another variable
+        id: step-2
+        run: echo "variable=Adiós mundo" >> $GITHUB_OUTPUT
+
+  sharing-between-jobs-2:
+    runs-on: ubuntu-latest
+    needs: sharing-between-jobs
+    env:
+      BASE_JOB: ${{ needs.sharing-between-jobs.outputs }}
+      VARIABLE_1: ${{ BASE_JOB.output-1 }}
+      VARIABLE_2: ${{ needs.sharing-between-jobs.outputs.output-2 }}
+    steps:
+      - name: Read a variable from another job
+        run: |
+          echo "Variable del step 1: $VARIABLE_1"
+          echo "Variable del step 2: $VARIABLE_2"
+    
