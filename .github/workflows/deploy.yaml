@@ -13,10 +13,10 @@ jobs:
       - run: echo "¡Listo para desplegar!"
   
   second-job:
-    if: ${{ github.ref == 'refs/heads/main'}}
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release'}}
     runs-on: ubuntu-latest
     needs: first-job
     steps:
       - run: echo "Este es el segundo trabajo"
       - run: echo "Aquí puedes agregar más pasos para tu flujo de trabajo"
-      - run: echo "¡Todo listo!"
+      - run: echo "¡Todo listo! ${{ github.event_name }}"
