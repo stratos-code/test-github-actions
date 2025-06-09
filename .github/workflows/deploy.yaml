@@ -23,3 +23,15 @@ jobs:
       - run: echo "Este es el segundo trabajo"
       - run: echo "Aquí puedes agregar más pasos para tu flujo de trabajo"
       - run: echo "¡Todo listo! ${{ github.event_name }}"
+
+  checkout-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Working Dir
+        run: ls -la
+      
+      - name: Action [Checkout]
+        uses: actions/checkout@v4
+
+      - name: Working Dir after checkout
+        run: ls -la
