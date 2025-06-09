@@ -13,7 +13,7 @@ jobs:
       - run: echo "Hola mundo desde GitHub Actions"
       - run: echo "Este es un ejemplo de un workflow simple"
       - run: echo "¡Listo para desplegar!"
-      - run: echo "Variable de entorno $NAME"
+      - run: echo "Variable de entorno ${{NAME}}"
   
   second-job:
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release'}}
