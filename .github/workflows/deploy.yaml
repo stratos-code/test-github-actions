@@ -44,4 +44,4 @@ jobs:
         run: echo "variable=Hola mundo" >> $GITHUB_OUTPUT
       
       - name: Read a variable
-        run: echo "Variable del step 1: ${{ steps.step-1.outputs.variable }}"
+        run: 'echo "Variable del step 1: ${{ steps.step-1.outputs.variable }}"'
