@@ -70,4 +70,16 @@ jobs:
         run: |
           echo "Variable del step 1: $VARIABLE_1"
           echo "Variable del step 2: $VARIABLE_2"
+
+  generate-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a file
+        run: echo "Este es un archivo de ejemplo" > example.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: archivo-test
+          path: example.txt
     
