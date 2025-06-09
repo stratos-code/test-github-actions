@@ -96,3 +96,6 @@ jobs:
 
       - name: List files
         run: ls -la
+
+      - name: Read the file
+        run: cat example.txt
