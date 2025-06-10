@@ -57,4 +57,4 @@ jobs:
 
       - name: Output deployment URL
         if: success()
-        run: 'echo "Deployment URL: $url"'
+        run: 'echo "Deployment URL: ${{ env.url }}"'
