@@ -19,3 +19,7 @@ jobs:
       - name: Install dependencies
         if: success()
         run: npm install
+
+      - name: Run tests
+        if: success()
+        run: npm run test
