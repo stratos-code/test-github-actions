@@ -5,6 +5,20 @@ on: push
 jobs:
   first_job:
     runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+
     steps:
-      - name: Output a variable
-        run: echo "${{ secrets.TOKEN_SECRET }}"
+      - name: Install redis cli
+        run: sudo apt-get update -y && sudo apt-get install redist-tools -y
+
+      - name: Test redis
+        run: redis-cli -h localhost -p 6379 ping
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
