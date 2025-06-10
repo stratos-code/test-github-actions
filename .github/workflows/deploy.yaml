@@ -107,4 +107,4 @@ jobs:
         message: ["Hola", "Mundo", "GitHub Actions"]
     steps:
       - name: Print message
-        run: echo "Running on ${{ matrix.os }}"
+        run: 'echo "Message is: ${{ matrix.message }}"'
