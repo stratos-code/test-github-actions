@@ -14,12 +14,14 @@ jobs:
 
     steps:
       - name: Install redis cli
-        run: sudo apt-get update -y && sudo apt-get install redist-tools -y
+        run: sudo apt-get update -y && sudo apt-get install redis-tools -y
 
       - name: Test redis
+        if: success()
         run: redis-cli -h localhost -p 6379 ping 
-        
+
       - name: setup
+        if: success()
         uses: actions/setup-node@v4
         with:
           node-version: '18'
