@@ -1,6 +1,6 @@
 {
   "name": "@stratos-code/paquete-estadistica",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Funciones estadísticas y generación de gráficas con Node.js",
   "main": "index.js",
   "scripts": {
