@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/stratos-code/test-github-actions.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [],
   "author": "Juan Felipe Giraldo",
   "license": "MIT",
