@@ -1,0 +1,25 @@
+{
+  "name": "paquete-estadistica",
+  "version": "1.0.0",
+  "description": "Funciones estadísticas y generación de gráficas con Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stratos-code/test-github-actions.git"
+  },
+  "keywords": [],
+  "author": "Juan Felipe Giraldo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stratos-code/test-github-actions/issues"
+  },
+  "homepage": "https://github.com/stratos-code/test-github-actions#readme",
+  "dependencies": {
+    "canvas": "^3.1.0",
+    "chart.js": "^4.4.9",
+    "chartjs-node-canvas": "^5.0.0"
+  }
+}
