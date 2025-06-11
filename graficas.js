@@ -24,6 +24,6 @@ async function generarGrafico(nombreArchivo, labels, data, options) {
     fs.writeFileSync(nombreArchivo, image);
 }
 
-modulue.exports = {
+module.exports = {
     generarGrafico
 };
